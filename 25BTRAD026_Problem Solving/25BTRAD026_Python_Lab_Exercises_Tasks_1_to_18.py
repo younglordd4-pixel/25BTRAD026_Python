@@ -1,9 +1,9 @@
 # Python Lab Exercises - Tasks 1 to 18
-# Name: HARIKUMARAN S M
+# Name: Dheeraj  S 
 # USN: 25BTRAD026
 
 # Task 1 - Print Name, Department, College
-print("Name: Hari Kumaran")
+print("Name: Dheeraj")
 print("Department: Computer Science Engineering")
 print("College: Jain University")
 
@@ -58,7 +58,7 @@ print("Programming is Easy")
 
 
 # Task 10 - Create a variable called name
-name = "Hari Kumaran"
+name = "Dheeraj"
 print(name)
 
 
