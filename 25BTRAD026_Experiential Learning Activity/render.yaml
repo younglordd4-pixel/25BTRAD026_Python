@@ -1,0 +1,29 @@
+services:
+  # FastAPI Backend
+  - type: web
+    name: studyverse-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: DATABASE_URL
+        value: sqlite:///./data/studyverse.db
+    disk:
+      name: studyverse-data
+      mountPath: /opt/render/project/src/data
+      sizeGB: 1
+
+  # Streamlit Frontend
+  - type: web
+    name: studyverse-ui
+    runtime: python
+    buildCommand: pip install streamlit>=1.35.0 requests>=2.32.0
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: BACKEND_URL
+        value: https://studyverse-backend.onrender.com
